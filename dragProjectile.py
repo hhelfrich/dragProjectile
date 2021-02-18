@@ -28,6 +28,7 @@ outFile = open("dragProjectile.txt", "w")
 t = 0
 x = 0
 y = 0
+z = 0
 y_max = 0
 inFlight = True
 
@@ -36,7 +37,7 @@ while (inFlight):
     x, y, v_x, v_y = update(x, y, v_x, v_y, a_x, a_y, dt)
     t += dt
     if (y >= 0):
-        outFile.write(str(t) + " " + str(x) + " " + str(y) + " " + str(v_x) + " " + str(v_y) + " " + str(a_x) + " " + str(a_y) + " " + "\n")
+        outFile.write(str(t) + " " + str(x) + " " + str(y) + " " + str(z) + " " + str(v_x) + " " + str(v_y) + " " + str(a_x) + " " + str(a_y) + " " + "\n")
         if (y > y_max):
             y_max = y 
     else:
