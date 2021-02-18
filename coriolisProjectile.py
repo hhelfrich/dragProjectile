@@ -4,9 +4,9 @@ g = 9.8 #m/s^2
 w = .0000727*math.pi/180 #degrees/s
 
 def acceleration(v_x, v_y, C, m, w, v_z, l):
-    a_x = -C*v_x*math.sqrt(v_x*v_x + v_y*v_y + v_z*v_z)/m - 2*v_z*w*math.sin(l)
-    a_y = -g - C*v_y*math.sqrt(v_x*v_x + v_y*v_y + v_z*v_z)/m - 2*v_z*w*math.cos(l)
-    a_z = -C*v_z*math.sqrt(v_x*v_x + v_y*v_y + v_z*v_z)/m + 2*v_x*w*math.sin(l) + 2*v_y*w*math.cos(l)
+    a_x = -(C*v_x*math.sqrt(v_x*v_x + v_y*v_y + v_z*v_z)/m) - 2*v_z*w*math.sin(l)
+    a_y = -g - (C*v_y*math.sqrt(v_x*v_x + v_y*v_y + v_z*v_z)/m) - 2*v_z*w*math.cos(l)
+    a_z = -(C*v_z*math.sqrt(v_x*v_x + v_y*v_y + v_z*v_z)/m) + 2*v_x*w*math.sin(l) + 2*v_y*w*math.cos(l)
     return a_x, a_y, a_z
 
 def update(x, y, z, v_x, v_y, v_z, a_x, a_y, a_z, dt):
@@ -39,7 +39,7 @@ y_max = 0
 inFlight = True
 
 while (inFlight):
-    a_x, a_y, a_z = acceleration(v_x, v_y, C, w, m, v_z, l)
+    a_x, a_y, a_z = acceleration(v_x, v_y, C, m, w, v_z, l)
     x, y, z, v_x, v_y, v_z = update(x, y, z, v_x, v_y, v_z, a_x, a_y, a_z, dt)
     t += dt
     if (y >= 0):
